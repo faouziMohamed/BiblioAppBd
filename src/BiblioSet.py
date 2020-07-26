@@ -48,3 +48,14 @@ class MainWindBib(QMainWindow):
     def on_buttonOk_clicked(self):
         QMessageBox.information(self, "Info", "Title : " +
                                 self.labelField.text())
+
+
+import sys
+from PyQt5.QtWidgets import QApplication
+
+if __name__ == "__main__":
+    app = QApplication(sys.argv)
+
+    bib = MainWindBib()
+    bib.show()
+    sys.exit(app.exec_())
