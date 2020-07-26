@@ -20,4 +20,5 @@ class bibEditor(QMainWindow, Ui_MainWindow):
         if fileName:
             # TODO : will replace a code here
             QMessageBox.information(
-                self, tr(self, "Trace"), tr(self, "File to open on :\n") + fileName)
+                self, tr(self, "Trace"), tr(self, "File to open on :\n") +
+                fileName)
