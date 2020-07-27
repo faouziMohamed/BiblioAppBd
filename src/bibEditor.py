@@ -10,7 +10,8 @@ class BibEditor(QMainWindow, Ui_MainWindow):
         super(BibEditor, self).__init__(parent)
         self.setupUi(self)
         self.unsaved_file = False
-        self.library = ModelTableBib([])
+        self.library = ModelTableBib()
+        self.genreComboBox.addItems(self.library.genres())
 
         self.treeView.setModel(self.library)
         self.initialize_fields()
@@ -26,9 +27,9 @@ class BibEditor(QMainWindow, Ui_MainWindow):
 
     def clearDetailsFields(self):
         for text_field in (self.titleLineEdit, self.authorLineEdit,
-                           self.editorLineEdit, self.resumTextEdit):
+                           self.editorLineEdit, self.summaryTextEdit):
             text_field.setText("")
-        self.kindComboBox.setCurrentIndex(0)
+        self.genreComboBox.setCurrentIndex(0)
         self.yearDateEdit.setDate(self.yearDateEdit.minimumDate())
         self.priceDSpinBox.setValue(self.priceDSpinBox.minimum())
 
@@ -37,9 +38,9 @@ class BibEditor(QMainWindow, Ui_MainWindow):
                        self.editorLineEdit):
             fields.textEdited.connect(self.input_in_progress)
 
-        self.kindComboBox.currentIndexChanged.connect(self.input_in_progress)
+        self.genreComboBox.currentIndexChanged.connect(self.input_in_progress)
         self.yearDateEdit.dateChanged.connect(self.input_in_progress)
-        self.resumTextEdit.textChanged.connect(self.input_in_progress)
+        self.summaryTextEdit.textChanged.connect(self.input_in_progress)
         self.priceDSpinBox.valueChanged.connect(self.input_in_progress)
         self.treeView.selectionModel().selectionChanged \
             .connect(self.on_treeview_selectionChanged)
@@ -84,12 +85,13 @@ class BibEditor(QMainWindow, Ui_MainWindow):
         return answer, no
 
     def displayBookDetails(self, book):
+        print(book)
         self.titleLineEdit.setText(book.title)
         self.authorLineEdit.setText(book.author)
-        self.kindComboBox.setCurrentText(book.kind)
+        self.genreComboBox.setCurrentText(book.genre)
         self.editorLineEdit.setText(book.editor)
         self.yearDateEdit.setDate(QDate(book.year, 1, 1))
-        self.resumTextEdit.setPlainText(book.resume)
+        self.summaryTextEdit.setPlainText(book.summary)
         self.priceDSpinBox.setValue(book.price)
 
     @Slot()
@@ -98,14 +100,16 @@ class BibEditor(QMainWindow, Ui_MainWindow):
         self.clearDetailsFields()
         self.saveButton.setEnabled(False)
 
+
     @Slot()
     def on_saveButton_clicked(self):
-        book = Book(title=self.titleLineEdit.text(),
+        book = Book(idBook=None,
+                    title=self.titleLineEdit.text(),
                     author=self.authorLineEdit.text(),
                     editor=self.editorLineEdit.text(),
-                    kind=self.kindComboBox.currentText(),
+                    genre=self.genreComboBox.currentText(),
                     year=self.yearDateEdit.date().year(),
-                    resume=self.resumTextEdit.toPlainText(),
+                    summary=self.summaryTextEdit.toPlainText(),
                     price=self.priceDSpinBox.value())
 
         currentSelection = self.treeView.selectionModel()
@@ -118,6 +122,7 @@ class BibEditor(QMainWindow, Ui_MainWindow):
             selected_book = columns_of_selected_book[0].row()
             self.library.replaceBook(selected_book, book)
         self.saveButton.setEnabled(False)
+        self.newButton.setEnabled(True)
 
     @Slot()
     def on_removeButton_clicked(self):
