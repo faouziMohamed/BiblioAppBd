@@ -27,11 +27,3 @@ if __name__ == "__main__":
     bib = BibEditor()
     bib.show()
     sys.exit(app.exec_())
-
-#    if len(sys.argv) == 1:
-#        local = QLocale()
-#        translator.load(local, "biblioapp", ".")
-#    else:
-#        translator.load("biblioapp." + sys.argv[1])
-#
-#        translator.load("biblioapp.fr_FR")

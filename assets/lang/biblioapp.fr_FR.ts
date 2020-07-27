@@ -1,56 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS><TS version="2.0">
+<!DOCTYPE TS>
+<TS version="2.1" language="en_US">
 <context>
     <name>@default</name>
     <message>
         <location filename="bibEditor.py" line="117"/>
         <source>Open a library file</source>
-        <translation type="unfinished"></translation>
+        <translation>Ouvrir un fichier bibliothèque</translation>
     </message>
     <message>
         <location filename="bibEditor.py" line="147"/>
         <source>Library</source>
-        <translation type="unfinished"></translation>
+        <translation>Bibliothèque</translation>
     </message>
     <message>
         <location filename="bibEditor.py" line="147"/>
         <source>all</source>
-        <translation type="unfinished"></translation>
+        <translation>Tout</translation>
     </message>
     <message>
         <location filename="bibEditor.py" line="134"/>
         <source>Modification in progress</source>
-        <translation type="unfinished"></translation>
+        <translation>Modification en cours</translation>
     </message>
     <message>
         <location filename="bibEditor.py" line="135"/>
         <source>Are you sure you want to continue</source>
-        <translation type="unfinished"></translation>
+        <translation>Ête-vous de vouloire continuer</translation>
     </message>
     <message>
         <location filename="bibEditor.py" line="136"/>
         <source>without saving the file</source>
-        <translation type="unfinished"></translation>
+        <translation>sans enregistrer le fichier</translation>
     </message>
     <message>
         <location filename="bibEditor.py" line="137"/>
         <source>Confirmation</source>
-        <translation type="unfinished"></translation>
+        <translation>Confirmation</translation>
     </message>
     <message>
         <location filename="bibEditor.py" line="146"/>
         <source>Save file</source>
-        <translation type="unfinished"></translation>
+        <translation>Enregistrer le fichier</translation>
     </message>
     <message>
         <location filename="bibEditor.py" line="198"/>
         <source>Are you sure you want to exit BiblioApp</source>
-        <translation type="unfinished"></translation>
+        <translation>Ête-vous sûre de vouloire quitter BiblioApp</translation>
     </message>
     <message>
         <location filename="bibEditor.py" line="201"/>
         <source>Confirm exit</source>
-        <translation type="unfinished"></translation>
+        <translation>Confirmer la fermeture</translation>
     </message>
 </context>
 <context>
@@ -58,12 +59,12 @@
     <message>
         <location filename="bibEditor.py" line="85"/>
         <source>Confirmation</source>
-        <translation type="unfinished"></translation>
+        <translation>Confirmation</translation>
     </message>
     <message>
         <location filename="bibEditor.py" line="86"/>
         <source>Abandon the unsaved entry ?</source>
-        <translation type="unfinished"></translation>
+        <translation>Abandonner la saisie non enregistrée ?</translation>
     </message>
 </context>
 <context>
@@ -71,138 +72,138 @@
     <message>
         <location filename="mainwindow.py" line="161"/>
         <source>BiblioApp</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="mainwindow.py" line="162"/>
         <source>Details</source>
-        <translation type="unfinished"></translation>
+        <translation>Détails</translation>
     </message>
     <message>
         <location filename="mainwindow.py" line="163"/>
         <source>Title</source>
-        <translation type="unfinished"></translation>
+        <translation>Titre</translation>
     </message>
     <message>
         <location filename="mainwindow.py" line="164"/>
         <source>Authors</source>
-        <translation type="unfinished"></translation>
+        <translation>Auteurs</translation>
     </message>
     <message>
         <location filename="mainwindow.py" line="165"/>
         <source>Kind</source>
-        <translation type="unfinished"></translation>
+        <translation>Genre</translation>
     </message>
     <message>
         <location filename="mainwindow.py" line="166"/>
         <source>---</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="mainwindow.py" line="167"/>
         <source>Biographie</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="mainwindow.py" line="168"/>
         <source>Fantastique</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="mainwindow.py" line="169"/>
         <source>Historique</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="mainwindow.py" line="170"/>
         <source>Policier</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="mainwindow.py" line="171"/>
         <source>Science-Fiction</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="mainwindow.py" line="172"/>
         <source>Editor</source>
-        <translation type="unfinished"></translation>
+        <translation>Editeur</translation>
     </message>
     <message>
         <location filename="mainwindow.py" line="173"/>
         <source>Publication year</source>
-        <translation type="unfinished"></translation>
+        <translation>Année de publication</translation>
     </message>
     <message>
         <location filename="mainwindow.py" line="174"/>
         <source>yyyy</source>
-        <translation type="unfinished"></translation>
+        <translation>aaaa</translation>
     </message>
     <message>
         <location filename="mainwindow.py" line="175"/>
         <source>Resume</source>
-        <translation type="unfinished"></translation>
+        <translation>Résumé</translation>
     </message>
     <message>
         <location filename="mainwindow.py" line="176"/>
         <source>Price</source>
-        <translation type="unfinished"></translation>
+        <translation>Prix</translation>
     </message>
     <message>
         <location filename="mainwindow.py" line="177"/>
         <source>$</source>
         <comment>0</comment>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="mainwindow.py" line="178"/>
         <source>&amp;New</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Nouveau</translation>
     </message>
     <message>
         <location filename="mainwindow.py" line="184"/>
         <source>&amp;Save</source>
-        <translation type="unfinished"></translation>
+        <translation>Enre&amp;gistrer</translation>
     </message>
     <message>
         <location filename="mainwindow.py" line="180"/>
         <source>&amp;Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Supprimer</translation>
     </message>
     <message>
         <location filename="mainwindow.py" line="181"/>
         <source>&amp;File</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Fichier</translation>
     </message>
     <message>
         <location filename="mainwindow.py" line="182"/>
         <source>&amp;Open</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Ouvrir</translation>
     </message>
     <message>
         <location filename="mainwindow.py" line="183"/>
         <source>Ctrl+O</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="mainwindow.py" line="185"/>
         <source>Ctrl+S</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="mainwindow.py" line="186"/>
         <source>&amp;Quit</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Quitter</translation>
     </message>
     <message>
         <location filename="mainwindow.py" line="187"/>
         <source>&amp;Close</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Fermer</translation>
     </message>
     <message>
         <location filename="mainwindow.py" line="188"/>
         <source>Ctrl+Q</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
 </context>
 </TS>
