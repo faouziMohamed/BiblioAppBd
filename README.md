@@ -14,7 +14,6 @@ On `conda` environment run :
 
 - **PyQt5**  ```conda install pyqt``` or ```conda install -c anaconda pyqt```
 - **PySide2** ```conda install -c conda-forge pyside2```
-- 
 
 ## Run the main  script
 
