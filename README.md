@@ -26,4 +26,7 @@ On `conda` environment run :
   ```
 ## Preview
 
-![BiblioApp on preview](assets/snapshots/bibapp.png)
+|                      BiblioApp                       |
+| :--------------------------------------------------: |
+| ![BiblioApp on preview](assets/snapshots/bibapp.png) |
+
