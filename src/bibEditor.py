@@ -115,7 +115,8 @@ class BibEditor(QMainWindow, Ui_MainWindow):
 
         opFname = QFileDialog.getOpenFileName
         title = tr("Open a library file")
-        filters = tr("Library(*.bib);; all(*.*)")
+        filters = tr("Library") + "(*.lib);;"
+        filters += tr("all") + "(*.*)"
         (fileName, filters) = opFname(self, title, filter=filters)
 
         if fileName:
@@ -131,8 +132,8 @@ class BibEditor(QMainWindow, Ui_MainWindow):
         question, answer = QMessageBox.question, yes
         if self.unsaved_file:
             msg_confirm = tr("Modification in progress") + "\n\n"
-            msg_confirm += tr("Are you sure you want to continue ")
-            msg_confirm += tr("without saving the file ?")
+            msg_confirm += tr("Are you sure you want to continue") + " "
+            msg_confirm += tr("without saving the file") + " ?"
             answer = question(self, tr("Confirmation"), msg_confirm, yes, no)
         return answer, no
 
@@ -143,7 +144,7 @@ class BibEditor(QMainWindow, Ui_MainWindow):
 
         if self.library_file is None:
             title = tr("Save file")
-            filters = tr("Library(*.bib);; all(*.*)")
+            filters = tr("Library") + "(*.lib);;" + tr("all") + "(*.*)"
             (fileName, filters) = gtFname(self, title, filter=filters)
             self.library_file = fileName
 
@@ -193,11 +194,11 @@ class BibEditor(QMainWindow, Ui_MainWindow):
         self.close()
 
     def closeEvent(self, event):
-        tr = QTranslator.tr
-        confirmMsg = tr(self, "Are you sure you want to exit BiblioApp");
+        tr = self.tr
+        confirmMsg = tr("Are you sure you want to exit BiblioApp") + " ?"
         question = QMessageBox.question
         yes, no = QMessageBox.Yes, QMessageBox.No
-        ans = question(self, "Confirm exit", confirmMsg, yes, no)
+        ans = question(self, tr("Confirm exit"), confirmMsg, yes, no)
 
         if ans == yes:
             event.accept()
