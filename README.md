@@ -24,6 +24,6 @@ On `conda` environment run :
   cd BiblioApp/src
   python main.py
   ```
-  
-  
+## Preview
 
+![BiblioApp on preview](assets/snapshots/bibapp.png)
