@@ -14,16 +14,19 @@ if __name__ == "__main__":
         langCountry = sys.argv[1]
 
     translators = []
+    lang_path = "../assets/lang/"
     for prefixQm in ("biblioapp.", "qt_", "qtbase_"):
         translator = QTranslator()
         translators.append(translator)
 
         if enNativeLang:
-            translator.load(local, prefixQm)
+            translator.load(local, lang_path+prefixQm)
         else:
-            translator.load(prefixQm + langCountry)
+            translator.load(lang_path+prefixQm + langCountry)
         app.installTranslator(translator)
 
     bib = BibEditor()
     bib.show()
     sys.exit(app.exec_())
+
+
