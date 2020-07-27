@@ -1,8 +1,8 @@
-SOURCES += main.py \
-           bibEditor.py \
-           mainwindow.py \
-           modelTableBib.py\
-           qtPy.py
+SOURCES += src/main.py \
+           src/bibEditor.py \
+           src/mainwindow.py \
+           src/modelTableBib.py\
+           src/qtPy.py
 
-TRANSLATIONS += biblioapp.fr_FR.ts \
-                biblioapp.en_US.ts
+TRANSLATIONS += assets/lang/biblioapp.fr_FR.ts \
+                assets/lang/biblioapp.en_US.ts
