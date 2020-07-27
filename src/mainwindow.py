@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'src/mainwindow.ui'
+# Form implementation generated from reading ui file 'mainwindow.ui'
 #
 # Created by: PyQt5 UI code generator 5.12.3
 #
@@ -164,11 +164,11 @@ class Ui_MainWindow(object):
         self.authorLabel.setText(_translate("MainWindow", "Authors"))
         self.kindLabel.setText(_translate("MainWindow", "Kind"))
         self.kindComboBox.setItemText(0, _translate("MainWindow", "---"))
-        self.kindComboBox.setItemText(1, _translate("MainWindow", "Biographie"))
-        self.kindComboBox.setItemText(2, _translate("MainWindow", "Fantastique"))
-        self.kindComboBox.setItemText(3, _translate("MainWindow", "Historique"))
-        self.kindComboBox.setItemText(4, _translate("MainWindow", "Policier"))
-        self.kindComboBox.setItemText(5, _translate("MainWindow", "Science-Fiction"))
+        self.kindComboBox.setItemText(1, _translate("MainWindow", "Biography"))
+        self.kindComboBox.setItemText(2, _translate("MainWindow", "Fantastic"))
+        self.kindComboBox.setItemText(3, _translate("MainWindow", "Historical"))
+        self.kindComboBox.setItemText(4, _translate("MainWindow", "Detective"))
+        self.kindComboBox.setItemText(5, _translate("MainWindow", "Science Fiction"))
         self.editorLabel.setText(_translate("MainWindow", "Editor"))
         self.yearLabel.setText(_translate("MainWindow", "Publication year"))
         self.yearDateEdit.setDisplayFormat(_translate("MainWindow", "yyyy"))
