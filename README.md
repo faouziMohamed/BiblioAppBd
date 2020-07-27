@@ -14,16 +14,17 @@ On `conda` environment run :
 
 - **PyQt5**  ```conda install pyqt``` or ```conda install -c anaconda pyqt```
 - **PySide2** ```conda install -c conda-forge pyside2```
+- 
 
 ## Run the main  script
 
-* Clone this repository `https://github.com/faouziMohamed/BiblioApp.git` 
+* Clone this repository `https://github.com/faouziMohamed/BiblioApp.git`  and run the main script `main.py`
 
-  ```git
+  ```bash
   git clone https://github.com/faouziMohamed/BiblioApp.git
+  cd BiblioApp/src
+  python main.py
   ```
   
-  ```cd BiblioApp```
   
-  ```python main.py``` 
 
