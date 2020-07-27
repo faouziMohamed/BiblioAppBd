@@ -32,18 +32,6 @@ class ModelTableBib(QAbstractTableModel):
             return self.books[index.row()][index.column()]
         return QVariant()
 
-    def saveInFile(self, file_name: str):
-        with open(file_name, 'w') as f:
-            json.dump(self.books, f)
-
-    @staticmethod
-    def createFromFile(file_name: str):
-        with open(file_name, 'r') as f:
-            file_content = f.read()
-        books_attributes = json.loads(file_content)
-        books = [Book(*attributes) for attributes in books_attributes]
-        return ModelTableBib(books)
-
     def addBook(self, book: Book):
         indexBook = len(self.books)
         self.beginInsertRows(QModelIndex(), indexBook, indexBook)

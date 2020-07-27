@@ -9,27 +9,13 @@ class BibEditor(QMainWindow, Ui_MainWindow):
     def __init__(self, parent=None):
         super(BibEditor, self).__init__(parent)
         self.setupUi(self)
-        self.library_file = None
         self.unsaved_file = False
         self.library = ModelTableBib([])
 
         self.treeView.setModel(self.library)
-        self.modification_to_save(False)
         self.initialize_fields()
         self.clearDetailsFields()
         self.initialize_event_connection()
-
-    def modification_to_save(self, unsaved_file: bool):
-        self.unsaved_file = unsaved_file
-        title = "BiblioApp"
-        if self.library_file is not None:
-            title += " - " + self.library_file
-        if self.unsaved_file:
-            title += " *"
-        self.setWindowTitle(title)
-        self.saveAction.setEnabled(unsaved_file)
-        self.saveButton.setEnabled(False)
-        self.newButton.setEnabled(True)
 
     def initialize_fields(self):
         self.yearDateEdit.setMinimumDate(QDate(1000, 1, 1))
@@ -107,52 +93,6 @@ class BibEditor(QMainWindow, Ui_MainWindow):
         self.priceDSpinBox.setValue(book.price)
 
     @Slot()
-    def on_openAction_triggered(self):
-        tr = self.tr
-        answer, no = self.ask_if_want_to_save_file(tr)
-        if answer == no:
-            return
-
-        opFname = QFileDialog.getOpenFileName
-        title = tr("Open a library file")
-        filters = tr("Library") + "(*.lib);;"
-        filters += tr("all") + "(*.*)"
-        (fileName, filters) = opFname(self, title, filter=filters)
-
-        if fileName:
-            self.library = ModelTableBib.createFromFile(fileName)
-            self.treeView.setModel(self.library)
-            self.treeView.selectionModel().selectionChanged \
-                .connect(self.on_treeview_selectionChanged)
-            self.library_file = fileName
-            self.modification_to_save(False)
-
-    def ask_if_want_to_save_file(self, tr):
-        yes, no = QMessageBox.Yes, QMessageBox.No
-        question, answer = QMessageBox.question, yes
-        if self.unsaved_file:
-            msg_confirm = tr("Modification in progress") + "\n\n"
-            msg_confirm += tr("Are you sure you want to continue") + " "
-            msg_confirm += tr("without saving the file") + " ?"
-            answer = question(self, tr("Confirmation"), msg_confirm, yes, no)
-        return answer, no
-
-    @Slot()
-    def on_saveAction_triggered(self):
-        tr = self.tr
-        gtFname = QFileDialog.getSaveFileName
-
-        if self.library_file is None:
-            title = tr("Save file")
-            filters = tr("Library") + "(*.lib);;" + tr("all") + "(*.*)"
-            (fileName, filters) = gtFname(self, title, filter=filters)
-            self.library_file = fileName
-
-        if self.library_file is not None:
-            self.library.saveInFile(self.library_file)
-            self.modification_to_save(False)
-
-    @Slot()
     def on_newButton_clicked(self):
         self.treeView.selectionModel().clearSelection()
         self.clearDetailsFields()
@@ -177,7 +117,6 @@ class BibEditor(QMainWindow, Ui_MainWindow):
         else:
             selected_book = columns_of_selected_book[0].row()
             self.library.replaceBook(selected_book, book)
-        self.modification_to_save(True)
         self.saveButton.setEnabled(False)
 
     @Slot()
@@ -187,20 +126,7 @@ class BibEditor(QMainWindow, Ui_MainWindow):
         if len(columns_of_selected_book) > 0:
             selected_book = columns_of_selected_book[0].row()
             self.library.deleteBook(selected_book)
-            self.modification_to_save(True)
 
     @Slot()
     def on_closeAction_triggered(self):
         self.close()
-
-    def closeEvent(self, event):
-        tr = self.tr
-        confirmMsg = tr("Are you sure you want to exit BiblioApp") + " ?"
-        question = QMessageBox.question
-        yes, no = QMessageBox.Yes, QMessageBox.No
-        ans = question(self, tr("Confirm exit"), confirmMsg, yes, no)
-
-        if ans == yes:
-            event.accept()
-        else:
-            event.ignore()
