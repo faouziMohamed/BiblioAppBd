@@ -85,7 +85,6 @@ class BibEditor(QMainWindow, Ui_MainWindow):
         return answer, no
 
     def displayBookDetails(self, book):
-        print(book)
         self.titleLineEdit.setText(book.title)
         self.authorLineEdit.setText(book.author)
         self.genreComboBox.setCurrentText(book.genre)
