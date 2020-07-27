@@ -90,27 +90,27 @@
            </item>
            <item>
             <property name="text">
-             <string>Biographie</string>
+             <string>Biography</string>
             </property>
            </item>
            <item>
             <property name="text">
-             <string>Fantastique</string>
+             <string>Fantastic</string>
             </property>
            </item>
            <item>
             <property name="text">
-             <string>Historique</string>
+             <string>Historical</string>
             </property>
            </item>
            <item>
             <property name="text">
-             <string>Policier</string>
+             <string>Detective</string>
             </property>
            </item>
            <item>
             <property name="text">
-             <string>Science-Fiction</string>
+             <string>Science Fiction</string>
             </property>
            </item>
           </widget>

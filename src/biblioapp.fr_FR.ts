@@ -101,28 +101,23 @@
     </message>
     <message>
         <location filename="mainwindow.py" line="167"/>
-        <source>Biographie</source>
-        <translation></translation>
+        <source>Biography</source>
+        <translation>Biographie</translation>
     </message>
     <message>
         <location filename="mainwindow.py" line="168"/>
-        <source>Fantastique</source>
-        <translation></translation>
+        <source>Fantastic</source>
+        <translation>Fantastique</translation>
     </message>
     <message>
         <location filename="mainwindow.py" line="169"/>
-        <source>Historique</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.py" line="170"/>
-        <source>Policier</source>
-        <translation></translation>
+        <source>Historical</source>
+        <translation>Historique</translation>
     </message>
     <message>
         <location filename="mainwindow.py" line="171"/>
-        <source>Science-Fiction</source>
-        <translation></translation>
+        <source>Science Fiction</source>
+        <translation>Science-Fiction</translation>
     </message>
     <message>
         <location filename="mainwindow.py" line="172"/>
@@ -204,6 +199,11 @@
         <location filename="mainwindow.py" line="188"/>
         <source>Ctrl+Q</source>
         <translation></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.py" line="170"/>
+        <source>Detective</source>
+        <translation>Policier</translation>
     </message>
 </context>
 </TS>

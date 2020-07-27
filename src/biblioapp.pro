@@ -1,8 +1,8 @@
 SOURCES += main.py \
            bibEditor.py \
            mainwindow.py \
-           moelTableBib.py\
-           qyPy.py
+           modelTableBib.py\
+           qtPy.py
 
 TRANSLATIONS += biblioapp.fr_FR.ts \
                 biblioapp.en_US.ts
