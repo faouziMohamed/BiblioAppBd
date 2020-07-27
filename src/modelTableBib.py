@@ -1,25 +1,24 @@
 # -*- coding : utf-8 -*-
 import json
-from PyQt5.QtCore import (QModelIndex, QObject as Qobj, Qt, QAbstractTableModel,
+from PyQt5.QtCore import (QModelIndex, Qt, QAbstractTableModel,
                           QTranslator, QVariant)
 from collections import namedtuple
 
 trs = QTranslator.tr
-Book = namedtuple(trs(Qobj(), 'Book'),
-                  trs(Qobj(), 'title author editor kind year resume price'))
+fields = ("title", "author", "editor", "kind", "year", "resume", "price")
+Book = namedtuple("Book", fields)
 
 
 class ModelTableBib(QAbstractTableModel):
     def __init__(self, books: list):
-        tr = self.tr
         super(ModelTableBib, self).__init__()
-        self.columnsTitles = (
-            tr('Title'), tr('Author'), tr('Editor'),tr("Kind"))
+        self.columnsTitles = (self.tr("Title"), self.tr("Author"),
+                              self.tr("Editor"), self.tr("Kind"))
         self.books = books
 
     def headerData(self, section, orientation, role):
         if (role == Qt.DisplayRole) and (orientation == Qt.Horizontal):
-            return self.columnsTitles[section]
+            return self.tr(self.columnsTitles[section])
         return QVariant()
 
     def columnCount(self, parent):

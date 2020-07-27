@@ -6,13 +6,32 @@ from bibEditor import BibEditor
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
-    translator = QTranslator()
-    if len(sys.argv) == 1:
+    enNativeLang = len(sys.argv) == 1
+
+    if enNativeLang:
         local = QLocale()
-        translator.load(local, "biblioapp", ".")
     else:
-        translator.load("biblioapp." + sys.argv[1])
-    app.installTranslator(translator)
+        langCountry = sys.argv[1]
+
+    translators = []
+    for prefixQm in ("biblioapp.", "qt_", "qtbase_"):
+        translator = QTranslator()
+        translators.append(translator)
+
+        if enNativeLang:
+            translator.load(local, prefixQm)
+        else:
+            translator.load(prefixQm + langCountry)
+        app.installTranslator(translator)
+
     bib = BibEditor()
     bib.show()
     sys.exit(app.exec_())
+
+#    if len(sys.argv) == 1:
+#        local = QLocale()
+#        translator.load(local, "biblioapp", ".")
+#    else:
+#        translator.load("biblioapp." + sys.argv[1])
+#
+#        translator.load("biblioapp.fr_FR")
