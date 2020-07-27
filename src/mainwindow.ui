@@ -70,9 +70,9 @@
         <widget class="QLineEdit" name="authorLineEdit"/>
        </item>
        <item row="2" column="0">
-        <widget class="QLabel" name="kindLabel">
+        <widget class="QLabel" name="genreLabel">
          <property name="text">
-          <string>Kind</string>
+          <string>Genre</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -82,10 +82,10 @@
        <item row="2" column="1">
         <layout class="QHBoxLayout" name="kindFieldHLayout">
          <item>
-          <widget class="QComboBox" name="kindComboBox"/>
+          <widget class="QComboBox" name="genreComboBox"/>
          </item>
          <item>
-          <spacer name="kindHSpacer">
+          <spacer name="genreHSpacer">
            <property name="orientation">
             <enum>Qt::Horizontal</enum>
            </property>
@@ -169,9 +169,9 @@
         </layout>
        </item>
        <item row="5" column="0">
-        <widget class="QLabel" name="resumLabel">
+        <widget class="QLabel" name="summaryLabel">
          <property name="text">
-          <string>Resume</string>
+          <string>Summary</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -179,7 +179,7 @@
         </widget>
        </item>
        <item row="5" column="1">
-        <widget class="QTextEdit" name="resumTextEdit"/>
+        <widget class="QTextEdit" name="summaryTextEdit"/>
        </item>
        <item row="6" column="0">
         <widget class="QLabel" name="priceLabel">

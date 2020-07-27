@@ -1,22 +1,45 @@
 # -*- coding : utf-8 -*-
-import json
-from PyQt5.QtCore import (QModelIndex, Qt, QAbstractTableModel,
-                          QTranslator, QVariant)
+import os
+from PyQt5.QtCore import (QModelIndex, Qt, QAbstractTableModel, QVariant)
 from collections import namedtuple
+from PyQt5.QtSql import QSqlDatabase, QSqlQuery
 
-trs = QTranslator.tr
-fields = ("title", "author", "editor", "kind", "year", "resume", "price")
+fields = ("idBook", "title", "author", "editor", "genre", "year", "resume", "price")
 Book = namedtuple("Book", fields)
+DB_FILE_NAME = "library.db"
 
 
 class ModelTableBib(QAbstractTableModel):
     def __init__(self, books: list):
         super(ModelTableBib, self).__init__()
         self.columnsTitles = (self.tr("Title"), self.tr("Author"),
-                              self.tr("Editor"), self.tr("Kind"))
+                              self.tr("Editor"), self.tr("Genre"))
         self.books = books
+        bdExists = os.path.exists(DB_FILE_NAME)
+        bd = QSqlDatabase.addDatabase('QSLITE')
+        bd.setDatabaseName(DB_FILE_NAME)
+        bd.open()
 
-    def headerData(self, section, orientation, role):
+        if not bdExists:
+            self.createBD()
+        self.readDB()
+
+    def createBD(self):
+        QSqlQuery(''' CREATE TABLE genres ( 
+                genre_id  INTEGER PRIMARY KEY,
+                genre     TEXT)''')
+
+        QSqlQuery(''' CREATE TABLE books(
+                book_id   INTEGER PRIMARY KEY,
+                title     TEXT,
+                author    TEXT,
+                publisher TEXT,
+                genre_id  INTEGER,
+                year      INTEGER,
+                summary   TEXT,
+                price     FLOAT)''')
+
+    def headerData(self, section: int, orientation: Qt.Orientation, role):
         if (role == Qt.DisplayRole) and (orientation == Qt.Horizontal):
             return self.tr(self.columnsTitles[section])
         return QVariant()
@@ -29,7 +52,7 @@ class ModelTableBib(QAbstractTableModel):
 
     def data(self, index, role):
         if role == Qt.DisplayRole and index.isValid():
-            return self.books[index.row()][index.column()]
+            return self.books[index.row()][index.column()+1]
         return QVariant()
 
     def addBook(self, book: Book):
