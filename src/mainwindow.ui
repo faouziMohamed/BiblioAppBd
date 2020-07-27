@@ -42,7 +42,7 @@
       <property name="title">
        <string>Details</string>
       </property>
-      <layout class="QGridLayout" name="gridLayout_2">
+      <layout class="QFormLayout" name="formLayout">
        <item row="0" column="0">
         <widget class="QLabel" name="titleLabel">
          <property name="text">
@@ -67,7 +67,7 @@
         </widget>
        </item>
        <item row="1" column="1">
-        <widget class="QLineEdit" name="priceLineEdit"/>
+        <widget class="QLineEdit" name="authorLineEdit"/>
        </item>
        <item row="2" column="0">
         <widget class="QLabel" name="kindLabel">
@@ -157,8 +157,30 @@
         <layout class="QHBoxLayout" name="yearFieldHLayout">
          <item>
           <widget class="QDateEdit" name="yearDateEdit">
+           <property name="inputMethodHints">
+            <set>Qt::ImhPreferNumbers</set>
+           </property>
+           <property name="specialValueText">
+            <string notr="true"/>
+           </property>
+           <property name="dateTime">
+            <datetime>
+             <hour>0</hour>
+             <minute>0</minute>
+             <second>0</second>
+             <year>2000</year>
+             <month>2</month>
+             <day>1</day>
+            </datetime>
+           </property>
            <property name="displayFormat">
             <string>yyyy</string>
+           </property>
+           <property name="calendarPopup">
+            <bool>true</bool>
+           </property>
+           <property name="timeSpec">
+            <enum>Qt::LocalTime</enum>
            </property>
           </widget>
          </item>
@@ -212,6 +234,9 @@
            </property>
            <property name="suffix">
             <string comment="0">$</string>
+           </property>
+           <property name="minimum">
+            <double>0.000000000000000</double>
            </property>
            <property name="maximum">
             <double>999999.000000000000000</double>
@@ -321,7 +346,7 @@
      <x>0</x>
      <y>0</y>
      <width>372</width>
-     <height>19</height>
+     <height>18</height>
     </rect>
    </property>
    <widget class="QMenu" name="menu_File">
@@ -341,7 +366,7 @@
     <string>&amp;Open</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+S</string>
+    <string>Ctrl+O</string>
    </property>
   </action>
   <action name="saveAction">

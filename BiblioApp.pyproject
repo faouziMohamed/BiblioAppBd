@@ -1,9 +1,0 @@
-{
-    "files": [
-                "src/bibEditor.py",
-                "src/main.py",
-                "src/mainwindow.ui",
-                "src/mainwindow.py",
-                "src/modelTableBib.py"
-             ]
-}
