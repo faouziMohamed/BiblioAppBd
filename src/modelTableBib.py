@@ -8,7 +8,9 @@ from PyQt5.QtSql import QSqlDatabase, QSqlQuery
 
 Book = namedtuple("Book", ("idBook", "title", "author", "editor",
                            "genre", "year", "summary", "price"))
-DB_FILE_NAME = "library.db"
+
+DB_PATH = "../assets/db/"
+DB_FILE_NAME = DB_PATH+"library.db"
 
 
 class ModelTableBib(QAbstractTableModel):

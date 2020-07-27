@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="en_US">
+<TS version="2.1" language="fr_FR">
 <context>
     <name>@default</name>
     <message>
@@ -16,7 +16,7 @@
     <message>
         <location filename="bibEditor.py" line="147"/>
         <source>all</source>
-        <translation>Tout</translation>
+        <translation>tout</translation>
     </message>
     <message>
         <location filename="bibEditor.py" line="134"/>
@@ -26,7 +26,7 @@
     <message>
         <location filename="bibEditor.py" line="135"/>
         <source>Are you sure you want to continue</source>
-        <translation>Ête-vous de vouloire continuer</translation>
+        <translation>Êtes-vous sûre de vouloire continuer</translation>
     </message>
     <message>
         <location filename="bibEditor.py" line="136"/>
@@ -36,7 +36,7 @@
     <message>
         <location filename="bibEditor.py" line="137"/>
         <source>Confirmation</source>
-        <translation>Confirmation</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="bibEditor.py" line="146"/>
@@ -46,7 +46,7 @@
     <message>
         <location filename="bibEditor.py" line="198"/>
         <source>Are you sure you want to exit BiblioApp</source>
-        <translation>Ête-vous sûre de vouloire quitter BiblioApp</translation>
+        <translation>Êtes-vous sûre de vouloire fermer BiblioApp</translation>
     </message>
     <message>
         <location filename="bibEditor.py" line="201"/>
@@ -59,7 +59,7 @@
     <message>
         <location filename="bibEditor.py" line="85"/>
         <source>Confirmation</source>
-        <translation>Confirmation</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="bibEditor.py" line="86"/>
@@ -87,7 +87,7 @@
     <message>
         <location filename="mainwindow.py" line="164"/>
         <source>Authors</source>
-        <translation>Auteurs</translation>
+        <translation>Auteur(s)</translation>
     </message>
     <message>
         <location filename="mainwindow.py" line="165"/>
@@ -101,33 +101,33 @@
     </message>
     <message>
         <location filename="mainwindow.py" line="167"/>
-        <source>Biographie</source>
-        <translation></translation>
+        <source>Biography</source>
+        <translation>Biographie</translation>
     </message>
     <message>
         <location filename="mainwindow.py" line="168"/>
-        <source>Fantastique</source>
-        <translation></translation>
+        <source>Fantastic</source>
+        <translation>Fantastique</translation>
     </message>
     <message>
         <location filename="mainwindow.py" line="169"/>
-        <source>Historique</source>
-        <translation></translation>
+        <source>Historical</source>
+        <translation>Historique</translation>
     </message>
     <message>
         <location filename="mainwindow.py" line="170"/>
-        <source>Policier</source>
-        <translation></translation>
+        <source>Detective</source>
+        <translation>Policier</translation>
     </message>
     <message>
         <location filename="mainwindow.py" line="171"/>
-        <source>Science-Fiction</source>
-        <translation></translation>
+        <source>Science Fiction</source>
+        <translation>Science-Fiction</translation>
     </message>
     <message>
         <location filename="mainwindow.py" line="172"/>
         <source>Editor</source>
-        <translation>Editeur</translation>
+        <translation>Éditeur</translation>
     </message>
     <message>
         <location filename="mainwindow.py" line="173"/>
@@ -163,7 +163,7 @@
     <message>
         <location filename="mainwindow.py" line="184"/>
         <source>&amp;Save</source>
-        <translation>Enre&amp;gistrer</translation>
+        <translation>&amp;Enregistrer</translation>
     </message>
     <message>
         <location filename="mainwindow.py" line="180"/>
@@ -198,12 +198,35 @@
     <message>
         <location filename="mainwindow.py" line="187"/>
         <source>&amp;Close</source>
-        <translation>&amp;Fermer</translation>
+        <translation>Fe&amp;rmer</translation>
     </message>
     <message>
         <location filename="mainwindow.py" line="188"/>
         <source>Ctrl+Q</source>
         <translation></translation>
+    </message>
+</context>
+<context>
+    <name>ModelTableBib</name>
+    <message>
+        <location filename="modelTableBib.py" line="15"/>
+        <source>Title</source>
+        <translation>Titre</translation>
+    </message>
+    <message>
+        <location filename="modelTableBib.py" line="15"/>
+        <source>Author</source>
+        <translation>Auteur</translation>
+    </message>
+    <message>
+        <location filename="modelTableBib.py" line="15"/>
+        <source>Editor</source>
+        <translation>Éditeur</translation>
+    </message>
+    <message>
+        <location filename="modelTableBib.py" line="15"/>
+        <source>Kind</source>
+        <translation>Genre</translation>
     </message>
 </context>
 </TS>
