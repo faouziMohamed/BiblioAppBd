@@ -17,7 +17,7 @@ On `conda` environment run :
 
 ## Run the main  script
 
--   Clone this repository `https://github.com/faouziMohamed/BiblioApp.git`  and run the main script `main.py`
+Clone this repository `https://github.com/faouziMohamed/BiblioApp.git`  and run the main script `main.py`
 
   ```bash
   git clone https://github.com/faouziMohamed/BiblioApp.git
@@ -29,4 +29,3 @@ On `conda` environment run :
 |                      BiblioApp                       |
 | :--------------------------------------------------: |
 | ![BiblioApp on preview](assets/snapshots/bibapp.png) |
-
