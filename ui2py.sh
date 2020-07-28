@@ -6,24 +6,23 @@ UI_FILE=
 PY_FILE=
 
 RED='\033[31m'
-GREEN='\033[32m'
 YELLOW='\033[33m'
 RESET='\033[0m'
 
 makeUi_becomePy_args(){
-    while [ $1 ]
+    while [ "$1" ]
     do
-        if (echo $1 | grep [-][s]) >/dev/null;
+        if (echo "$1" | grep [-][s]) >/dev/null;
         then
-            if (echo $2 | grep [-][a-zA-Z]) >/dev/null;
+            if (echo "$2" | grep [-][a-zA-Z]) >/dev/null;
             then
                 echo "${YELLOW}ERROR${RESET} in arg ${RED}$2${RESET} inexpected option, just after ${YELLOW}$1${RESET}"
                 exit 1
             fi
             UI_FILE="$2"; shift
-        elif (echo $1 | grep [-][o]) >/dev/null;
+        elif (echo "$1" | grep [-][o]) >/dev/null;
         then
-            if (echo $2 | grep [-][a-zA-Z]) >/dev/null;
+            if (echo "$2" | grep [-][a-zA-Z]) >/dev/null;
             then
                 echo "${YELLOW}ERROR${RESET} in arg ${RED}$2${RESET} inexpected option, just after ${YELLOW}$1${RESET}"
                 exit 1
@@ -35,7 +34,7 @@ makeUi_becomePy_args(){
     if [ "${PY_FILE}" -a "${UI_FILE}" ] ; then echo "Done";exit 0; fi 
     done
     
-    pyuic5 ${UI_FILE} -o ${PY_FILE}
+    pyuic5 "${UI_FILE}" -o "${PY_FILE}"
     return 0
 }
 
@@ -79,4 +78,4 @@ case $# in
     *) makeUi_becomePy_args "$@" ;;
 esac
 
-exit $ret
+exit ${ret}
