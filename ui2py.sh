@@ -54,7 +54,7 @@ makeUi_becomePy(){
             exit 2
         fi
 
-        pyuic5 ${UI_FILE} -o ${PY_FILE}
+        pyuic5 "${UI_FILE}" -o "${PY_FILE}"
         [ $? -ne 0 ]&&
         { 
             echo -n "${RED}Error${RESET} while " > /dev/stderr
@@ -78,4 +78,4 @@ case $# in
     *) makeUi_becomePy_args "$@" ;;
 esac
 
-exit ${ret}
+exit "${ret}"
