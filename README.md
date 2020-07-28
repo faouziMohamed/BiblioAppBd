@@ -29,3 +29,7 @@ Clone this repository `https://github.com/faouziMohamed/BiblioApp.git`  and run 
 |                      BiblioApp                       |
 | :--------------------------------------------------: |
 | ![BiblioApp on preview](assets/snapshots/bibapp.png) |
+
+----------------------------------------------------------------------------------------------------------------------------
+## Alternative
+There is a version using file to save Library (JSon file) instead of Database file here [BiblioAppJSon](https://github.com/faouziMohamed/BiblioAppJSon)
