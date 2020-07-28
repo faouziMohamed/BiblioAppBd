@@ -99,7 +99,6 @@ class BibEditor(QMainWindow, Ui_MainWindow):
         self.clearDetailsFields()
         self.saveButton.setEnabled(False)
 
-
     @Slot()
     def on_saveButton_clicked(self):
         book = Book(idBook=None,
@@ -134,4 +133,3 @@ class BibEditor(QMainWindow, Ui_MainWindow):
     @Slot()
     def on_closeAction_triggered(self):
         self.close()
-
