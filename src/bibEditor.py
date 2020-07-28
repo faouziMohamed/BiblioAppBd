@@ -134,3 +134,4 @@ class BibEditor(QMainWindow, Ui_MainWindow):
     @Slot()
     def on_closeAction_triggered(self):
         self.close()
+
