@@ -2,22 +2,27 @@
 
 # Form implementation generated from reading ui file 'src/mainwindow.ui'
 #
-# Created by: PyQt5 UI code generator 5.12.3
+# Created by: PyQt5 UI code generator 5.9.2
 #
 # WARNING! All changes made in this file will be lost!
 
-
 from PyQt5 import QtCore, QtGui, QtWidgets
-
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(372, 463)
+        MainWindow.resize(452, 511)
         MainWindow.setMinimumSize(QtCore.QSize(0, 0))
         MainWindow.setMaximumSize(QtCore.QSize(475, 568))
         MainWindow.setMouseTracking(True)
-        MainWindow.setStyleSheet("QPushButton{background-color:#f5d555;}")
+        MainWindow.setStyleSheet("QPushButton{background-color:#f5d555;}\n"
+"QWidget#centralwidget,\n"
+"QHBoxLayout *,\n"
+"QVBoxLayout *,\n"
+"QWidget\n"
+"{\n"
+"    background-color : #eee;\n"
+"}")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.gridLayout = QtWidgets.QGridLayout(self.centralwidget)
@@ -69,10 +74,18 @@ class Ui_MainWindow(object):
         self.yearFieldHLayout = QtWidgets.QHBoxLayout()
         self.yearFieldHLayout.setObjectName("yearFieldHLayout")
         self.yearDateEdit = QtWidgets.QDateEdit(self.groupBox)
+        self.yearDateEdit.setEnabled(True)
         self.yearDateEdit.setInputMethodHints(QtCore.Qt.ImhPreferNumbers)
+        self.yearDateEdit.setWrapping(True)
+        self.yearDateEdit.setFrame(True)
+        self.yearDateEdit.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
+        self.yearDateEdit.setButtonSymbols(QtWidgets.QAbstractSpinBox.NoButtons)
         self.yearDateEdit.setSpecialValueText("")
+        self.yearDateEdit.setCorrectionMode(QtWidgets.QAbstractSpinBox.CorrectToPreviousValue)
+        self.yearDateEdit.setKeyboardTracking(True)
+        self.yearDateEdit.setProperty("showGroupSeparator", False)
         self.yearDateEdit.setDateTime(QtCore.QDateTime(QtCore.QDate(2000, 2, 1), QtCore.QTime(0, 0, 0)))
-        self.yearDateEdit.setCalendarPopup(True)
+        self.yearDateEdit.setCalendarPopup(False)
         self.yearDateEdit.setTimeSpec(QtCore.Qt.LocalTime)
         self.yearDateEdit.setObjectName("yearDateEdit")
         self.yearFieldHLayout.addWidget(self.yearDateEdit)
@@ -125,7 +138,7 @@ class Ui_MainWindow(object):
         self.gridLayout.addLayout(self.btnHLayout, 2, 0, 1, 1)
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 372, 18))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 452, 20))
         self.menubar.setObjectName("menubar")
         self.menu_File = QtWidgets.QMenu(self.menubar)
         self.menu_File.setObjectName("menu_File")
@@ -172,3 +185,4 @@ class Ui_MainWindow(object):
         self.action_Quit.setText(_translate("MainWindow", "&Quit"))
         self.closeAction.setText(_translate("MainWindow", "&Close"))
         self.closeAction.setShortcut(_translate("MainWindow", "Ctrl+Q"))
+

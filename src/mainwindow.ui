@@ -7,8 +7,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>372</width>
-    <height>463</height>
+    <width>452</width>
+    <height>511</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -30,7 +30,14 @@
    <string>BiblioApp</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">QPushButton{background-color:#f5d555;}</string>
+   <string notr="true">QPushButton{background-color:#f5d555;}
+QWidget#centralwidget,
+QHBoxLayout *,
+QVBoxLayout *,
+QWidget
+{
+	background-color : #eee;
+}</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
@@ -126,11 +133,35 @@
         <layout class="QHBoxLayout" name="yearFieldHLayout">
          <item>
           <widget class="QDateEdit" name="yearDateEdit">
+           <property name="enabled">
+            <bool>true</bool>
+           </property>
            <property name="inputMethodHints">
             <set>Qt::ImhPreferNumbers</set>
            </property>
+           <property name="wrapping">
+            <bool>true</bool>
+           </property>
+           <property name="frame">
+            <bool>true</bool>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+           <property name="buttonSymbols">
+            <enum>QAbstractSpinBox::NoButtons</enum>
+           </property>
            <property name="specialValueText">
             <string notr="true"/>
+           </property>
+           <property name="correctionMode">
+            <enum>QAbstractSpinBox::CorrectToPreviousValue</enum>
+           </property>
+           <property name="keyboardTracking">
+            <bool>true</bool>
+           </property>
+           <property name="showGroupSeparator" stdset="0">
+            <bool>false</bool>
            </property>
            <property name="dateTime">
             <datetime>
@@ -146,7 +177,7 @@
             <string>yyyy</string>
            </property>
            <property name="calendarPopup">
-            <bool>true</bool>
+            <bool>false</bool>
            </property>
            <property name="timeSpec">
             <enum>Qt::LocalTime</enum>
@@ -314,8 +345,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>372</width>
-     <height>18</height>
+     <width>452</width>
+     <height>20</height>
     </rect>
    </property>
    <widget class="QMenu" name="menu_File">

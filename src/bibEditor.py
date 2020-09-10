@@ -1,9 +1,11 @@
-from mainwindow import Ui_MainWindow
+from PyQt5 import QtCore
+
+from mainwindow    import Ui_MainWindow
 from modelTableBib import Book, ModelTableBib
 from PyQt5.QtCore import (pyqtSlot as Slot, QDate, QItemSelection,
-                          QItemSelectionModel, QTranslator)
-from PyQt5.QtWidgets import (QFileDialog, QMainWindow, QMessageBox)
-
+                          QItemSelectionModel, QTranslator, QPoint, Qt)
+from PyQt5.QtWidgets import (QFileDialog, QMainWindow, QMessageBox, QAction,
+                             QMenu, QWidget)
 
 class BibEditor(QMainWindow, Ui_MainWindow):
     def __init__(self, parent=None):
@@ -17,9 +19,21 @@ class BibEditor(QMainWindow, Ui_MainWindow):
         self.initialize_fields()
         self.clearDetailsFields()
         self.initialize_event_connection()
+        self.treeView.setContextMenuPolicy(Qt.CustomContextMenu)
+        self.treeView.customContextMenuRequested.connect(self.on_context_menu)
+
+    def on_context_menu(self, pos:QPoint):
+        menu = QMenu("Context menu", self)
+        close_action = QAction("Close", self)
+        close_action.triggered.connect(self.close_action_needed)
+        menu.addAction(close_action)
+        menu.exec_(self.treeView.viewport().mapToGlobal(pos))
+
+    def close_action_needed(self):
+        QMessageBox.information(self, "Ok","Okkkk")
 
     def initialize_fields(self):
-        self.yearDateEdit.setMinimumDate(QDate(1000, 1, 1))
+        self.yearDateEdit.setMinimumDate(QDate(2020, 1, 1))
         self.priceDSpinBox.setSpecialValueText(" ")
         self.yearDateEdit.setSpecialValueText(" ")
         self.removeButton.setEnabled(False)
