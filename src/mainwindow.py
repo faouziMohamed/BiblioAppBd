@@ -79,6 +79,7 @@ class Ui_MainWindow(object):
         self.yearDateEdit.setWrapping(True)
         self.yearDateEdit.setFrame(True)
         self.yearDateEdit.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
+        self.yearDateEdit.setReadOnly(False)
         self.yearDateEdit.setButtonSymbols(QtWidgets.QAbstractSpinBox.NoButtons)
         self.yearDateEdit.setSpecialValueText("")
         self.yearDateEdit.setCorrectionMode(QtWidgets.QAbstractSpinBox.CorrectToPreviousValue)

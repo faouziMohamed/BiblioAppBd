@@ -3,7 +3,7 @@ from PyQt5 import QtCore
 from mainwindow    import Ui_MainWindow
 from modelTableBib import Book, ModelTableBib
 from PyQt5.QtCore import (pyqtSlot as Slot, QDate, QItemSelection,
-                          QItemSelectionModel, QTranslator, QPoint, Qt)
+                          QItemSelectionModel, QTranslator, QPoint, Qt, qDebug)
 from PyQt5.QtWidgets import (QFileDialog, QMainWindow, QMessageBox, QAction,
                              QMenu, QWidget)
 
@@ -30,10 +30,10 @@ class BibEditor(QMainWindow, Ui_MainWindow):
         menu.exec_(self.treeView.viewport().mapToGlobal(pos))
 
     def close_action_needed(self):
-        QMessageBox.information(self, "Ok","Okkkk")
+        self.on_closeAction_triggered()
 
     def initialize_fields(self):
-        self.yearDateEdit.setMinimumDate(QDate(2020, 1, 1))
+        self.yearDateEdit.setMinimumDate(QDate(1000, 1, 1))
         self.priceDSpinBox.setSpecialValueText(" ")
         self.yearDateEdit.setSpecialValueText(" ")
         self.removeButton.setEnabled(False)
@@ -70,8 +70,8 @@ class BibEditor(QMainWindow, Ui_MainWindow):
         abandon, no = self.askIf_WantAbandon_CurrentEntry(selected, deselected)
         if abandon == no:
             return
+        self.clearDetailsFields()
         if len(selectedIndex) == 0:
-            self.clearDetailsFields()
             self.removeButton.setEnabled(False)
         else:
             index_of_selectedBook = selectedIndex[0].row()

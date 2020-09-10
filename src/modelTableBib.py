@@ -56,11 +56,12 @@ class ModelTableBib(QAbstractTableModel):
         self.id_by_genre = OrderedDict()
         while query.next():
             self.id_by_genre[query.value(1)] = query.value(0)
+            # print(query.value(1))
         query = QSqlQuery(''' SELECT book_id, title, author, publisher,
-                                    genre, year, summary, price
-                                FROM books
-                                JOIN genres ON
-                                    genres.genre_id = books.genre_id ''')
+                                     genre, year, summary, price
+                              FROM books
+                              JOIN genres ON 
+                               genres.genre_id = books.genre_id ''')
         self.books = []
         while query.next():
             book = Book(*(query.value(i) for i in range(8)))
@@ -87,19 +88,20 @@ class ModelTableBib(QAbstractTableModel):
 
     def addBook(self, book: Book):
         query = QSqlQuery()
-        query.prepare(''' INSERT INTO books
-                    (book_id, title, author, publisher, genre_id, year, 
-                     summary, price)
-            VALUES (NULL, :title, :author, :editor, :idGenre, :year,
-                    :summary, :price)''')
+        query.prepare(''' 
+        INSERT INTO books (book_id,   title,    author, 
+                           publisher, genre_id, year, 
+                           summary,   price)
+        VALUES (NULL,:title,:author, :editor,:idGenre, :year, :summary, :price)
+        ''')
 
-        query.bindValue(":title", book.title)
-        query.bindValue(":author", book.author)
-        query.bindValue(":editor", book.editor)
+        query.bindValue(":title",   book.title)
+        query.bindValue(":author",  book.author)
+        query.bindValue(":editor",  book.editor)
         query.bindValue(":idGenre", self.id_by_genre[book.genre])
-        query.bindValue(":year", book.year)
+        query.bindValue(":year",    book.year)
         query.bindValue(":summary", book.summary)
-        query.bindValue(":price", book.price)
+        query.bindValue(":price",   book.price)
         query.exec_()
         qDebug(query.lastError().text())
 
@@ -113,8 +115,7 @@ class ModelTableBib(QAbstractTableModel):
 
     def deleteBook(self, index_book: int):
         query = QSqlQuery()
-        query.prepare(''' DELETE FROM books 
-                          WHERE book_id = :id_book ''')
+        query.prepare(''' DELETE FROM books WHERE book_id = :id_book ''')
         query.bindValue(":id_book", self.books[index_book].idBook)
         query.exec_()
 
@@ -125,22 +126,22 @@ class ModelTableBib(QAbstractTableModel):
     def replaceBook(self, index_book: int, book: Book):
         query = QSqlQuery()
         query.prepare(''' UPDATE books
-                    SET title = :title,
-                        author = :author,
+                    SET title     = :title,
+                        author    = :author,
                         publisher = :editor,
-                        genre_id = :idGenre,
-                        year = :year,
-                        summary = :summary,
-                        price = :price 
+                        genre_id  = :idGenre,
+                        year      = :year,
+                        summary   = :summary,
+                        price     = :price 
                     WHERE book_id = :idBook ''')
-        query.bindValue(":idBook", self.books[index_book].idBook)
-        query.bindValue(":title", book.title)
-        query.bindValue(":author", book.author)
-        query.bindValue(":editor", book.editor)
+        query.bindValue(":idBook",  self.books[index_book].idBook)
+        query.bindValue(":title",   book.title)
+        query.bindValue(":author",  book.author)
+        query.bindValue(":editor",  book.editor)
         query.bindValue(":idGenre", self.id_by_genre[book.genre])
-        query.bindValue(":year", book.year)
+        query.bindValue(":year",    book.year)
         query.bindValue(":summary", book.summary)
-        query.bindValue(":price", book.price)
+        query.bindValue(":price",   book.price)
         query.exec_()
 
         self.books[index_book] = book
