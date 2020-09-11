@@ -10,7 +10,8 @@ Book = namedtuple("Book", ("idBook", "title", "author", "editor",
                            "genre", "year", "summary", "price"))
 
 DB_PATH = "../assets/db/"
-DB_FILE_NAME = DB_PATH+"library.db"
+DB_FILE = "library.sqlite"
+DB_FILE_NAME = DB_PATH+DB_FILE
 
 
 class ModelTableBib(QAbstractTableModel):
