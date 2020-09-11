@@ -21,8 +21,6 @@ class ModelTableBib(QAbstractTableModel):
         self.columnsTitles = (self.tr("Title"), self.tr("Author"),
                               self.tr("Editor"), self.tr("Genre"))
         self.books = []
-        self.id_by_genre = None
-
         bdExists = os.path.exists(DB_FILE_NAME)
         bd = QSqlDatabase.addDatabase('QSQLITE')
         bd.setDatabaseName(DB_FILE_NAME)
@@ -51,13 +49,6 @@ class ModelTableBib(QAbstractTableModel):
                 ("Detective"), ("Science-Fiction")''')
 
     def readDB(self):
-        query = QSqlQuery('''SELECT genre_id, genre 
-                             FROM genres 
-                             ORDER BY genre_id''')
-        self.id_by_genre = OrderedDict()
-        while query.next():
-            self.id_by_genre[query.value(1)] = query.value(0)
-            # print(query.value(1))
         query = QSqlQuery(''' SELECT book_id, title, author, publisher,
                                      genre, year, summary, price
                               FROM books
@@ -69,7 +60,12 @@ class ModelTableBib(QAbstractTableModel):
             self.books.append(book)
 
     def genres(self):
-        return self.id_by_genre.keys()
+        query = QSqlQuery(''' SELECT genre FROM genres ''')
+        values = []
+        while query.next():
+            category = query.value(0)
+            values.append(category)
+        return values
 
     def headerData(self, section: int, orientation: Qt.Orientation, role):
         if (role == Qt.DisplayRole) and (orientation == Qt.Horizontal):
@@ -89,17 +85,21 @@ class ModelTableBib(QAbstractTableModel):
 
     def addBook(self, book: Book):
         query = QSqlQuery()
-        query.prepare(''' 
-        INSERT INTO books (book_id,   title,    author, 
-                           publisher, genre_id, year, 
-                           summary,   price)
-        VALUES (NULL,:title,:author, :editor,:idGenre, :year, :summary, :price)
+        query.prepare(
+        ''' 
+            INSERT INTO books (book_id,   title,    author, 
+                               publisher, genre_id, year, 
+                               summary,   price)
+            SELECT NULL, :title, :author, 
+                   :editor, genre_id, 
+                   :year, :summary, :price 
+            FROM genres WHERE genres.genre = :genre
         ''')
 
         query.bindValue(":title",   book.title)
         query.bindValue(":author",  book.author)
         query.bindValue(":editor",  book.editor)
-        query.bindValue(":idGenre", self.id_by_genre[book.genre])
+        query.bindValue(":genre",   book.genre)
         query.bindValue(":year",    book.year)
         query.bindValue(":summary", book.summary)
         query.bindValue(":price",   book.price)
@@ -130,7 +130,8 @@ class ModelTableBib(QAbstractTableModel):
                     SET title     = :title,
                         author    = :author,
                         publisher = :editor,
-                        genre_id  = :idGenre,
+                        genre_id  = (select g.genre_id from genres g 
+                                     where g.genre = :genre),
                         year      = :year,
                         summary   = :summary,
                         price     = :price 
@@ -139,7 +140,7 @@ class ModelTableBib(QAbstractTableModel):
         query.bindValue(":title",   book.title)
         query.bindValue(":author",  book.author)
         query.bindValue(":editor",  book.editor)
-        query.bindValue(":idGenre", self.id_by_genre[book.genre])
+        query.bindValue(":genre",   book.genre)
         query.bindValue(":year",    book.year)
         query.bindValue(":summary", book.summary)
         query.bindValue(":price",   book.price)
