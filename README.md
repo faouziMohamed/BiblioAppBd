@@ -2,7 +2,7 @@
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/1c63efbcd1d94dd888338e2bb162c9dd)](https://app.codacy.com/manual/faouziMohamed/BiblioApp?utm_source=github.com&utm_medium=referral&utm_content=faouziMohamed/BiblioApp&utm_campaign=Badge_Grade_Dashboard)
 
-A test of using SLQLite in PyQt5 to create a small Library !
+A test of using SLQLite in PyQt5 to create a small Library ! (Using the Model view delegate pattern)
 
 ## Requirement 
 -   PyQt5 (or see PySide2)  
